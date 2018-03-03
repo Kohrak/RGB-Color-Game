@@ -20,6 +20,7 @@ function newGame(){
   var colors = newColors(6);
   assignColors(colors, squares);
   winner = colors[Math.floor(Math.random() * 6)];
+  document.querySelector("#colorDisplay").textContent = winner;
 }
 
 function logic(){
