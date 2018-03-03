@@ -9,16 +9,32 @@ function newColors(num){
   }
   return colors
 }
+
 function assignColors(colors, squares){
   for (var j = 0; j < squares.length; j++){
     squares[j].style.backgroundColor = colors[j];
   }
 }
-var squares = document.querySelectorAll(".square");
-for (var i = 0; i < squares.length; i++){
-  squares[i].addEventListener("click", function(){
-    console.log("clicked");
-  });
+
+function newGame(){
+  var colors = newColors(6);
+  assignColors(colors, squares);
+  winner = colors[Math.floor(Math.random() * 6)];
 }
 
-assignColors(newColors(6), squares);
+function logic(){
+  console.log("clicked");
+  if (this.style.backgroundColor == winner){
+    console.log("you win")
+  }
+  else {
+    this.style.backgroundColor = "black";
+    console.log("nope")
+  }
+}
+var winner = ""
+var squares = document.querySelectorAll(".square");
+for (var i = 0; i < squares.length; i++){
+  squares[i].addEventListener("click", logic);
+}
+newGame()
