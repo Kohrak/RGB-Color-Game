@@ -16,26 +16,36 @@ function assignColors(colors, squares){
   }
 }
 
+function win(color){
+  for (var j = 0; j < squares.length; j++){
+    squares[j].style.backgroundColor = color;
+  }
+  panel.style.backgroundColor = color;
+}
+
 function newGame(){
   var colors = newColors(6);
   assignColors(colors, squares);
   winner = colors[Math.floor(Math.random() * 6)];
   document.querySelector("#colorDisplay").textContent = winner;
+  panel.style.backgroundColor = "black";
 }
 
 function logic(){
-  console.log("clicked");
   if (this.style.backgroundColor == winner){
-    console.log("you win")
+    win(winner)
   }
   else {
     this.style.backgroundColor = "black";
-    console.log("nope")
   }
 }
+
 var winner = ""
 var squares = document.querySelectorAll(".square");
+var panel = document.querySelector("#gamePanel");
+var newGamebutton = document.querySelector("#newGame")
 for (var i = 0; i < squares.length; i++){
   squares[i].addEventListener("click", logic);
 }
+newGamebutton.addEventListener("click", newGame)
 newGame()
