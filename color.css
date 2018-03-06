@@ -1,13 +1,26 @@
  body {
    background-color: black;
  }
+
+.text-center {
+  text-align: center;
+}
+
  .square {
    width: 30%;
    background-color: white;
    padding-bottom: 30%;
    float: left;
-   margin: 1.66%
+   margin: 1.66%;
+   border-radius: 15px;
  }
+
+.gameButton{
+  width: 40px;
+  background-color: blue;
+  margin: 0px 30px;
+  padding: 10px 30px;
+}
 
  #grid {
    max-width: 600px;
@@ -17,3 +30,7 @@
  #gamePanel{
    color: white;
  }
+
+#colorDisplay{
+  text-transform: uppercase;
+}
