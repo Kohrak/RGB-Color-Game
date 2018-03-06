@@ -21,12 +21,18 @@ function win(color){
     squares[j].style.backgroundColor = color;
   }
   panel.style.backgroundColor = color;
+  gameMessage.textContent = "You Win!"
 }
 
 function newGame(){
-  var colors = newColors(6);
+  if (normalMode){
+    var num = 6;
+  } else {
+    var num = 3;
+  }
+  var colors = newColors(num);
   assignColors(colors, squares);
-  winner = colors[Math.floor(Math.random() * 6)];
+  winner = colors[Math.floor(Math.random() * num)];
   document.querySelector("#colorDisplay").textContent = winner;
   panel.style.backgroundColor = "black";
 }
@@ -37,6 +43,7 @@ function logic(){
   }
   else {
     this.style.backgroundColor = "black";
+    gameMessage.textContent = "Try again!";
   }
 }
 
@@ -44,6 +51,8 @@ var winner = ""
 var squares = document.querySelectorAll(".square");
 var panel = document.querySelector("#gamePanel");
 var newGamebutton = document.querySelector("#newGame")
+var gameMessage = document.querySelector("#gameMessage")
+var normalMode = true
 for (var i = 0; i < squares.length; i++){
   squares[i].addEventListener("click", logic);
 }
