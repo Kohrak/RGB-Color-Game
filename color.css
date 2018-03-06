@@ -18,8 +18,7 @@
 .gameButton{
   width: 40px;
   background-color: blue;
-  margin: 0px 30px;
-  padding: 10px 30px;
+  margin: 0 30px;
 }
 
  #grid {
@@ -29,6 +28,7 @@
 
  #gamePanel{
    color: white;
+   background-color: yellow;
  }
 
 #colorDisplay{
