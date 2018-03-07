@@ -15,12 +15,6 @@
    border-radius: 15px;
  }
 
-.gameButton{
-  width: 40px;
-  background-color: blue;
-  margin: 0 30px;
-}
-
  #grid {
    max-width: 600px;
    margin: 0 auto;
@@ -33,4 +27,10 @@
 
 #colorDisplay{
   text-transform: uppercase;
+}
+
+#controlPanel{
+  background-color: white;
+  height: 30px;
+  text-align: center;
 }

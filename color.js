@@ -21,7 +21,8 @@ function win(color){
     squares[j].style.backgroundColor = color;
   }
   panel.style.backgroundColor = color;
-  gameMessage.textContent = "You Win!"
+  gameMessage.textContent = "You Win!";
+  newGamebutton.textContent = "Play Again?";
 }
 
 function newGame(){
@@ -35,6 +36,7 @@ function newGame(){
   winner = colors[Math.floor(Math.random() * num)];
   document.querySelector("#colorDisplay").textContent = winner;
   panel.style.backgroundColor = "black";
+  newGamebutton.textContent = "New Colors";
 }
 
 function logic(){
