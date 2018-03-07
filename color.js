@@ -14,7 +14,12 @@ function newColors(num){
 function assignColors(colors, squares){
   //Changes each html squares background to the colors of the array
   for (var j = 0; j < squares.length; j++){
-    squares[j].style.backgroundColor = colors[j];
+    if (colors[j]){
+      squares[j].style.display = "block";
+      squares[j].style.backgroundColor = colors[j];
+    } else {
+      squares[j].style.display = "none";
+    }
   }
 }
 
@@ -43,7 +48,7 @@ function newGame(){
   //Display the RGB values to guess
   document.querySelector("#colorDisplay").textContent = winner;
   //Resets the div background color and button message
-  panel.style.backgroundColor = "black";
+  panel.style.backgroundColor = bodyColor;
   newGamebutton.textContent = "New Colors";
   gameMessage.textContent = "";
 }
@@ -55,7 +60,7 @@ function logic(){
     win(winner)
   }
   else {
-    this.style.backgroundColor = "black";
+    this.style.backgroundColor = bodyColor;
     gameMessage.textContent = "Try again!";
   }
 }
@@ -73,6 +78,7 @@ var newGamebutton = document.querySelector("#newGame")
 var gameMessage = document.querySelector("#gameMessage")
 var easyModeButton = document.querySelector("#easyMode")
 var normalModeButton = document.querySelector("#normalMode")
+var bodyColor = "black"
 
 //Adding event listeners
 
@@ -85,9 +91,6 @@ easyModeButton.addEventListener("click", function(){
     normalMode = false;
     this.classList.toggle("selected");
     normalModeButton.classList.toggle("selected");
-    for (var j = 3; j < squares.length; j++){
-      squares[j].style.display = "none";
-    }
     newGame();
   }
 })
@@ -96,9 +99,6 @@ normalModeButton.addEventListener("click", function(){
   normalMode = true;
   this.classList.toggle("selected");
   easyModeButton.classList.toggle("selected");
-  for (var j = 3; j < squares.length; j++){
-    squares[j].style.display = "block";
-  }
   newGame();
 }
 })
