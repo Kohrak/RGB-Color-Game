@@ -1,6 +1,12 @@
  body {
-   background-color: black;
+   background-color: #1b1b1c;
+   font-family: 'Mina', sans-serif;
+   margin: 0;
  }
+
+.no-margin {
+  margin-bottom: 0px;
+}
 
 .text-center {
   text-align: center;
@@ -22,17 +28,22 @@
 
  #gamePanel{
    color: white;
-   background-color: yellow;
+   background-color: #0b3954;
+   width: 100%;
+   padding: 5px 0px 25px 0px;
  }
 
 #colorDisplay{
   text-transform: uppercase;
+  font-size: 4em;
+  margin: 0px;
 }
 
 #controlPanel{
-  background-color: white;
+  background-color: #bfd7ea;
   height: 30px;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .selected {

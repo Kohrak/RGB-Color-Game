@@ -48,7 +48,7 @@ function newGame(){
   //Display the RGB values to guess
   document.querySelector("#colorDisplay").textContent = winner;
   //Resets the div background color and button message
-  panel.style.backgroundColor = bodyColor;
+  panel.style.backgroundColor = "#0b3954";
   newGamebutton.textContent = "New Colors";
   gameMessage.textContent = "";
 }
@@ -78,7 +78,7 @@ var newGamebutton = document.querySelector("#newGame")
 var gameMessage = document.querySelector("#gameMessage")
 var easyModeButton = document.querySelector("#easyMode")
 var normalModeButton = document.querySelector("#normalMode")
-var bodyColor = "black"
+var bodyColor = "#1b1b1c"
 
 //Adding event listeners
 
