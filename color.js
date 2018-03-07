@@ -45,6 +45,7 @@ function newGame(){
   //Resets the div background color and button message
   panel.style.backgroundColor = "black";
   newGamebutton.textContent = "New Colors";
+  gameMessage.textContent = "";
 }
 
 function logic(){
@@ -70,6 +71,8 @@ var squares = document.querySelectorAll(".square");
 var panel = document.querySelector("#gamePanel");
 var newGamebutton = document.querySelector("#newGame")
 var gameMessage = document.querySelector("#gameMessage")
+var easyModeButton = document.querySelector("#easyMode")
+var normalModeButton = document.querySelector("#normalMode")
 
 //Adding event listeners
 
@@ -77,6 +80,28 @@ for (var i = 0; i < squares.length; i++){
   squares[i].addEventListener("click", logic);
 }
 newGamebutton.addEventListener("click", newGame)
+easyModeButton.addEventListener("click", function(){
+    if (normalMode) {
+    normalMode = false;
+    this.classList.toggle("selected");
+    normalModeButton.classList.toggle("selected");
+    for (var j = 3; j < squares.length; j++){
+      squares[j].style.display = "none";
+    }
+    newGame();
+  }
+})
+normalModeButton.addEventListener("click", function(){
+  if (!normalMode) {
+  normalMode = true;
+  this.classList.toggle("selected");
+  easyModeButton.classList.toggle("selected");
+  for (var j = 3; j < squares.length; j++){
+    squares[j].style.display = "block";
+  }
+  newGame();
+}
+})
 
 //initialize
 
