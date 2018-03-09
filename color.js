@@ -65,9 +65,29 @@ function logic(){
   }
 }
 
+function changeMode(mode){
+  //changes game mode and display mode with buttons
+  function toggleButtons(){
+    for (var i = 0; i < modebtn.length; i++){
+      modebtn[i].classList.toggle("selected");
+    }
+  }
+  if (normalMode && mode =="Easy"){
+    normalMode = false;
+    toggleButtons();
+    newGame();
+  } else if (!normalMode && mode =="Normal") {
+    normalMode = true;
+    toggleButtons();
+    newGame();
+  }
+}
+
+
 //declare global variables and element pointers
 
 //variables
+var bodyColor = "#1b1b1c"
 var winner = ""
 var normalMode = true
 
@@ -78,7 +98,8 @@ var newGamebutton = document.querySelector("#newGame")
 var gameMessage = document.querySelector("#gameMessage")
 var easyModeButton = document.querySelector("#easyMode")
 var normalModeButton = document.querySelector("#normalMode")
-var bodyColor = "#1b1b1c"
+var modebtn = document.querySelectorAll(".modebtn")
+
 
 //Adding event listeners
 
@@ -86,22 +107,28 @@ for (var i = 0; i < squares.length; i++){
   squares[i].addEventListener("click", logic);
 }
 newGamebutton.addEventListener("click", newGame)
-easyModeButton.addEventListener("click", function(){
-    if (normalMode) {
-    normalMode = false;
-    this.classList.toggle("selected");
-    normalModeButton.classList.toggle("selected");
-    newGame();
-  }
-})
-normalModeButton.addEventListener("click", function(){
-  if (!normalMode) {
-  normalMode = true;
-  this.classList.toggle("selected");
-  easyModeButton.classList.toggle("selected");
-  newGame();
+// easyModeButton.addEventListener("click", function(){
+//     if (normalMode) {
+//     normalMode = false;
+//     this.classList.toggle("selected");
+//     normalModeButton.classList.toggle("selected");
+//     newGame();
+//   }
+// })
+// normalModeButton.addEventListener("click", function(){
+//   if (!normalMode) {
+//   normalMode = true;
+//   this.classList.toggle("selected");
+//   easyModeButton.classList.toggle("selected");
+//   newGame();
+// }
+// })
+
+for (var i = 0; i < modebtn.length; i++){
+  modebtn[i].addEventListener("click", function(){
+    changeMode(this.textContent);
+  })
 }
-})
 
 //initialize
 
