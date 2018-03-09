@@ -33,12 +33,7 @@ function win(color){
   newGamebutton.textContent = "Play Again?";
 }
 
-function newGame(){
-  if (normalMode){
-    var num = 6;
-  } else {
-    var num = 3;
-  }
+function newGame(num){
   //generate new colors
   var colors = newColors(num);
   //assign the colors generated to the html squares
@@ -67,19 +62,48 @@ function logic(){
 
 function changeMode(mode){
   //changes game mode and display mode with buttons
-  function toggleButtons(){
+  function toggleButtons(mode){
     for (var i = 0; i < modebtn.length; i++){
-      modebtn[i].classList.toggle("selected");
+      if (modebtn[i].textContent == mode){
+        modebtn[i].classList.add("selected")
+      } else {
+        modebtn[i].classList.remove("selected");
+      }
     }
+      newGame(squaresQ);
   }
-  if (normalMode && mode =="Easy"){
-    normalMode = false;
-    toggleButtons();
-    newGame();
-  } else if (!normalMode && mode =="Normal") {
-    normalMode = true;
-    toggleButtons();
-    newGame();
+  // if (squaresQ != 3 && mode =="Easy"){
+  //   squaresQ = 3
+  //   toggleButtons();
+  //   newGame(squaresQ);
+  // } else if (squaresQ != 6 && mode =="Normal") {
+  //   squaresQ = 6
+  //   toggleButtons();
+  //   newGame(squaresQ);
+  // } else if (squares != 9 && mode =="Hard"){
+  //   squaresQ = 9
+  //   toggleButtons();
+  //   newGame(squaresQ)
+  // }
+  switch(mode){
+    case "Easy":
+      if(squaresQ != 3){
+        squaresQ = 3
+        toggleButtons(mode);
+      }
+      break;
+    case "Normal":
+      if(squaresQ != 6){
+        squaresQ = 6
+        toggleButtons(mode);
+      }
+      break;
+    case "Hard":
+      if(squaresQ != 9){
+        squaresQ = 9
+        toggleButtons(mode);
+      }
+      break;
   }
 }
 
@@ -87,9 +111,9 @@ function changeMode(mode){
 //declare global variables and element pointers
 
 //variables
-var bodyColor = "#1b1b1c"
-var winner = ""
-var normalMode = true
+var bodyColor = "#1b1b1c";
+var winner = "";
+var squaresQ = 6;
 
 //pointers
 var squares = document.querySelectorAll(".square");
@@ -106,23 +130,9 @@ var modebtn = document.querySelectorAll(".modebtn")
 for (var i = 0; i < squares.length; i++){
   squares[i].addEventListener("click", logic);
 }
-newGamebutton.addEventListener("click", newGame)
-// easyModeButton.addEventListener("click", function(){
-//     if (normalMode) {
-//     normalMode = false;
-//     this.classList.toggle("selected");
-//     normalModeButton.classList.toggle("selected");
-//     newGame();
-//   }
-// })
-// normalModeButton.addEventListener("click", function(){
-//   if (!normalMode) {
-//   normalMode = true;
-//   this.classList.toggle("selected");
-//   easyModeButton.classList.toggle("selected");
-//   newGame();
-// }
-// })
+newGamebutton.addEventListener("click", function(){
+  newGame(squaresQ);
+})
 
 for (var i = 0; i < modebtn.length; i++){
   modebtn[i].addEventListener("click", function(){
@@ -132,4 +142,4 @@ for (var i = 0; i < modebtn.length; i++){
 
 //initialize
 
-newGame()
+newGame(squaresQ);
