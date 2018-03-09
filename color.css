@@ -19,6 +19,9 @@
    float: left;
    margin: 1.66%;
    border-radius: 15px;
+   transition: all 0.2s;
+   -webkit-transition: all 0.2s;
+   -moz-transition: all 0.2s;
  }
 
  #grid {
@@ -47,5 +50,30 @@
 }
 
 .selected {
-  background-color: blue;
+  background-color: #0b3954;
+  color :#bfd7ea;
+}
+
+#gameMessage{
+  display: inline-block;
+  width: 100px;
+}
+
+button {
+  font-family: 'Mina', sans-serif;
+  font-weight: bold;
+  color: black;
+  letter-spacing: 1px;
+  border: none;
+  background: none;
+  height: 100%;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+}
+
+button:hover{
+  background-color: #0b3954;
+  color :#bfd7ea;
 }
