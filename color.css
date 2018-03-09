@@ -19,10 +19,15 @@
    float: left;
    margin: 1.66%;
    border-radius: 15px;
-   transition: all 0.2s;
-   -webkit-transition: all 0.2s;
-   -moz-transition: all 0.2s;
+   transition:  background 0.2s;
+   -webkit-transition: background 0.2s;
+   -moz-transition: background 0.2s;
  }
+
+.squareHard {
+  width: 20%;
+  padding-bottom: 20%;
+}
 
  #grid {
    max-width: 600px;
@@ -56,7 +61,7 @@
 
 #gameMessage{
   display: inline-block;
-  width: 100px;
+  width: 150px;
 }
 
 button {

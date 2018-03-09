@@ -17,6 +17,15 @@ function assignColors(colors, squares){
     if (colors[j]){
       squares[j].style.display = "block";
       squares[j].style.backgroundColor = colors[j];
+      if (squares[j].classList.contains("squareHard")){
+        if(squaresQ != 12){
+          squares[j].classList.remove("squareHard")
+        }
+      } else {
+        if(squaresQ == 12){
+          squares[j].classList.add("squareHard")
+        }
+      }
     } else {
       squares[j].style.display = "none";
     }
@@ -99,8 +108,8 @@ function changeMode(mode){
       }
       break;
     case "Hard":
-      if(squaresQ != 9){
-        squaresQ = 9
+      if(squaresQ != 12){
+        squaresQ = 12;
         toggleButtons(mode);
       }
       break;
